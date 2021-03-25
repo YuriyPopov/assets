@@ -1,0 +1,26 @@
+{
+  "id": "a6c7be2a-d61f-4b53-b8c0-ac32d829e4b5",
+  "name": "Assets",
+  "publisher": "ypo",
+  "version": "17.0.0.1",
+  "brief": "",
+  "description": "",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "17.0.0.0",
+  "idRanges": [
+    {
+      "from": 99900,
+      "to": 99949
+    }
+  ],
+  "contextSensitiveHelpUrl": "https://assets.com/help/",
+  "showMyCode": true,
+  "runtime": "6.0"
+}
