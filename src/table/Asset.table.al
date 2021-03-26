@@ -45,6 +45,7 @@ table 99900 Asset
         {
             Caption = 'Starting Date';
             DataClassification = CustomerContent;
+            Editable = false;
         }
         field(80; "Monthly Depreciation Amount"; Decimal)
         {
@@ -60,4 +61,10 @@ table 99900 Asset
             Clustered = true;
         }
     }
+
+    trigger OnInsert()
+    begin
+        if Rec."Starting Date" = 0D then
+            Rec."Starting Date" := Today();
+    end;
 }
