@@ -12,6 +12,16 @@ table 99900 Asset
         {
             Caption = 'No.';
             DataClassification = CustomerContent;
+
+            trigger OnValidate()
+            begin
+                if Rec."No." <> xRec."No." then begin
+                    AssetSetup.Get();
+                    NoSeriesMgt.TestManual(AssetSetup."Asset Nos.");
+                    "No. Series" := '';
+                end;
+            end;
+
         }
         field(20; Description; Text[100])
         {
@@ -52,6 +62,12 @@ table 99900 Asset
             Caption = 'Monthly Depreciation Amount';
             DataClassification = CustomerContent;
         }
+        field(90; "No. Series"; Code[20])
+        {
+            Caption = 'No. Series';
+            Editable = false;
+            TableRelation = "No. Series";
+        }
     }
 
     keys
@@ -66,5 +82,16 @@ table 99900 Asset
     begin
         if Rec."Starting Date" = 0D then
             Rec."Starting Date" := Today();
+
+        if Rec."No." = '' then begin
+            AssetSetup.Get();
+            AssetSetup.TestField("Asset Nos.");
+            NoSeriesMgt.InitSeries(AssetSetup."Asset Nos.", xRec."No. Series", 0D, "No.", "No. Series");
+        end;
     end;
+
+    var
+        AssetSetup: Record "Asset Setup";
+        NoSeriesMgt: Codeunit NoSeriesManagement;
+
 }

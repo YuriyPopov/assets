@@ -11,23 +11,21 @@ page 99900 "Asset Card"
             group(General)
             {
                 Caption = 'General';
-                field("No."; Rec."No.")
-                {
-                    ApplicationArea = All;
-                }
                 field(Description; Rec.Description)
                 {
                     ApplicationArea = All;
+                    ShowMandatory = true;
+                }
+                field("Asset Type"; Rec."Asset Type")
+                {
+                    ApplicationArea = All;
+                    ShowMandatory = true;
                 }
                 field("Location Code"; Rec."Location Code")
                 {
                     ApplicationArea = All;
                 }
                 field("Location Name"; Rec."Location Name")
-                {
-                    ApplicationArea = All;
-                }
-                field("Asset Type"; Rec."Asset Type")
                 {
                     ApplicationArea = All;
                 }
