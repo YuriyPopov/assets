@@ -47,4 +47,19 @@ page 99902 "Asset Journal"
             }
         }
     }
+    actions
+    {
+        area(Processing)
+        {
+            action(InitializeAssetJournal)
+            {
+                ApplicationArea = All;
+                Caption = 'Initialize Asset Journal';
+                RunObject = Report "Initialize Asset Journal";
+                Promoted = true;
+                PromotedOnly = true;
+                PromotedCategory = Process;
+            }
+        }
+    }
 }
