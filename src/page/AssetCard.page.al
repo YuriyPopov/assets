@@ -43,5 +43,13 @@ page 99900 "Asset Card"
                 }
             }
         }
+        area(FactBoxes)
+        {
+            part(AssetCardPart; "Asset Statistics")
+            {
+                ApplicationArea = All;
+                SubPageLink = "No." = field("No."), "Date Filter" = field("Date Filter");
+            }
+        }
     }
 }

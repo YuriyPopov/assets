@@ -68,6 +68,25 @@ table 99900 Asset
             Editable = false;
             TableRelation = "No. Series";
         }
+        field(100; "Accumulated Depreciation"; Decimal)
+        {
+            Caption = 'Accumulated Depreciation';
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = sum("Asset Journal Line".Amount where("Transaction Type" = const("Monthly Depreciation"), "Asset No." = field("No."), "Transaction Date" = field("Date Filter")));
+        }
+        field(110; "Residual Value"; Decimal)
+        {
+            Caption = 'Residual Value';
+            Editable = false;
+            FieldClass = FlowField;
+            CalcFormula = sum("Asset Journal Line".Amount where("Asset No." = field("No."), "Transaction Date" = field("Date Filter")));
+        }
+        field(120; "Date Filter"; Date)
+        {
+            Caption = 'Date Filter';
+            FieldClass = FlowFilter;
+        }
     }
 
     keys
@@ -93,5 +112,4 @@ table 99900 Asset
     var
         AssetSetup: Record "Asset Setup";
         NoSeriesMgt: Codeunit NoSeriesManagement;
-
 }

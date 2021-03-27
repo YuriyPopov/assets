@@ -49,5 +49,13 @@ page 99901 "Asset List"
                 }
             }
         }
+        area(FactBoxes)
+        {
+            part(AssetStatistics; "Asset Statistics")
+            {
+                ApplicationArea = All;
+                SubPageLink = "No." = field("No."), "Date Filter" = field("Date Filter");
+            }
+        }
     }
 }
